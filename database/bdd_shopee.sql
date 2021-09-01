@@ -7,8 +7,8 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
-CREATE DATABASE `commandes` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `commandes`;
+CREATE DATABASE `shopee` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `shopee`;
 
 DROP TABLE IF EXISTS `cart`;
 CREATE TABLE `cart` (
@@ -38,8 +38,7 @@ CREATE TABLE `client` (
   `remarques` text NOT NULL,
   `dateCreation` datetime DEFAULT NULL,
   PRIMARY KEY (`clientId`),
-  KEY `user_id` (`user_id`),
-  CONSTRAINT `client_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
+  KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO `client` (`clientId`, `user_id`, `prenom`, `nom`, `adresse`, `codePostal`, `ville`, `phoneFixe`, `phoneMobile`, `adressMail`, `remarques`, `dateCreation`) VALUES
@@ -110,4 +109,4 @@ INSERT INTO `wishlist` (`cart_id`, `user_id`, `item_id`) VALUES
 (15,	1,	5)
 ON DUPLICATE KEY UPDATE `cart_id` = VALUES(`cart_id`), `user_id` = VALUES(`user_id`), `item_id` = VALUES(`item_id`);
 
--- 2021-09-01 21:28:31
+-- 2021-09-01 21:49:03
